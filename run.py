@@ -20,10 +20,16 @@ class Board:
         """
         Displays the board
         """
-         
+        
         for row in self.board:
             print(" ".join(row))
 
-data = Board(5, 4, "player", type="player")
-print(data.display_board())
+        return True
+
+d = Board(5, 4, "player", type="player")
+name = player_name
+print(f"{name} board")
+print(d.display_board())
+print("computer board")
+print(d.display_board())
         
