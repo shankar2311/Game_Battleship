@@ -2,6 +2,7 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 player_name = input("Please enter your name:")
+size = 5
 
 class Board:
     """
@@ -13,7 +14,16 @@ class Board:
         self.num_ships = num_ships
         self.name = name
         self.type = type
+        self.board = [["." for x in range(size)] for y in range(size)]
 
-data = Board(5, 4, "player", type="player") 
+    def display_board(self):
+        """
+        Displays the board
+        """
+         
+        for row in self.board:
+            print(" ".join(row))
 
-print(data.name)       
+data = Board(5, 4, "player", type="player")
+print(data.display_board())
+        
