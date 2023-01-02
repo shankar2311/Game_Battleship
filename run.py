@@ -3,6 +3,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 player_name = input("Please enter your name:")
 size = 5
+num_ships = 4
 
 class Board:
     """
@@ -19,6 +20,7 @@ class Board:
     def display_board(self):
         """
         Displays the board
+        code taken from code institute Project Portfolio
         """
         
         for row in self.board:
@@ -26,10 +28,11 @@ class Board:
 
         return True
 
-d = Board(5, 4, "player", type="player")
+computer_board = Board(size, num_ships, "computer", type="computer")
+player_board = Board(size, num_ships, "player_name", type="player")
 name = player_name
 print(f"{name} board")
-print(d.display_board())
+print(player_board.display_board())
 print("computer board")
-print(d.display_board())
+print(computer_board.display_board())
         
