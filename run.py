@@ -37,7 +37,16 @@ class StartGame:
         self.ship = Ship(self.board) 
 
     def make_guess(self):
-        x = int(input("Guess a row:"))
-        y = int(input("Guess a column:"))
-        return (x, y) 
+        while True:
+            try:
+                x = int(input("Guess a row(0-4):"))
+                y = int(input("Guess a column(0-4):"))
+
+                if x < 0 or x > 4 or y < 0 or y > 4:
+                    raise ValueError("Your guess is out of range!")
+
+                return (x, y)
+
+            except ValueError as e:
+                print(e)    
 
