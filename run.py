@@ -50,3 +50,8 @@ class StartGame:
             except ValueError as e:
                 print(e)    
 
+    def computer_guess(self):
+        x = randint(0, 4)
+        y = randint(0, 4)
+
+        return (x, y)
