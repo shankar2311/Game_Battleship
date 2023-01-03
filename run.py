@@ -15,4 +15,14 @@ class Board:
     def print_board(self):
         for row in self.board:
             print(" ".join(row))
+
   
+class Ship:
+    """
+    The ship class places a ship at a random location on the board.
+    
+    """
+    def __init__(self, board):
+        self.board = board
+        self.ship_row = randint(0, len(self.board.board) - 1) 
+        self.ship_col = randint(0, len(self.board.board[0]) - 1) 
