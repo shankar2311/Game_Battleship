@@ -5,7 +5,7 @@ player_name = input("Please enter your name:")
 class Board:
     """
     Main board class. Sets board size.
-    Has methods for printing board for both player and computer
+    Has methods for printing board for both player and computer.
     code inspired from Code Institute lessons
     """
     def __init__(self):
@@ -25,4 +25,13 @@ class Ship:
     def __init__(self, board):
         self.board = board
         self.ship_row = randint(0, len(self.board.board) - 1) 
-        self.ship_col = randint(0, len(self.board.board[0]) - 1) 
+        self.ship_col = randint(0, len(self.board.board) - 1) 
+
+
+class StartGame:
+    """
+    In StartGame class allows the player to guess the location of the ship.
+    """
+    def __init__(self):
+        self.board = Board()
+        self.ship = Ship(self.board)       
