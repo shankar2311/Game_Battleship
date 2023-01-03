@@ -34,4 +34,10 @@ class StartGame:
     """
     def __init__(self):
         self.board = Board()
-        self.ship = Ship(self.board)       
+        self.ship = Ship(self.board) 
+
+    def make_guess(self):
+        x = int(input("Guess a row:"))
+        y = int(input("Guess a column:"))
+        return (x, y) 
+
