@@ -9,10 +9,12 @@ class Board:
     code inspired from Code Institute lessons
     """
     def __init__(self):
+
         self.board = [["."] * 5 for i in range(5)]
 
     #Below code is taken from Code Institute project portfolio
     def print_board(self):
+
         for row in self.board:
             print(" ".join(row))
 
@@ -23,6 +25,7 @@ class Ship:
     
     """
     def __init__(self, board):
+
         self.board = board
         self.ship_row = randint(0, len(self.board.board) - 1) 
         self.ship_col = randint(0, len(self.board.board) - 1) 
@@ -30,13 +33,16 @@ class Ship:
 
 class StartGame:
     """
-    In StartGame class allows the player to guess the location of the ship.
+    In StartGame class allows the player and computer to guess the location of the ship.
     """
     def __init__(self):
+
         self.board = Board()
         self.ship = Ship(self.board) 
 
+
     def make_guess(self):
+
         while True:
             try:
                 x = int(input("Guess a row(0-4):"))
@@ -51,7 +57,16 @@ class StartGame:
                 print(e)    
 
     def computer_guess(self):
+
         x = randint(0, 4)
         y = randint(0, 4)
 
         return (x, y)
+
+
+    def check_winner(self, x, y):
+        # Checks the winner, returns true if all the ships have been hit otherwise returns false
+        if x == self.ship.ship_row and y == self.ship.ship_col:
+            return True
+        else:
+            return False       
