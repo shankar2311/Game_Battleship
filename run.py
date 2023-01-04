@@ -28,25 +28,25 @@ class Board:
 
         if self.name != "computer":
 
-            for i in range(3):
-                while p < 3:
-                    row = randint(0, len(self.board) - 1)
-                    col = randint(0, len(self.board[0]) - 1)
-                    if self.board[row][col] != "@":
-                        self.board[row][col] = "@"
-                        self.ship_locations.append((row, col))
-                        p = p+1
-                        break
+            
+            while p < 3:
+                row = randint(0, len(self.board) - 1)
+                col = randint(0, len(self.board[0]) - 1)
+                if self.board[row][col] != "@":
+                    self.board[row][col] = "@"
+                    self.ship_locations.append((row, col))
+                    p = p+1
+                   
         else:
 
-            for i in range(3):
-                while p < 3:
-                    row = randint(0, len(self.board) - 1)
-                    col = randint(0, len(self.board[0]) - 1)
-                    if (row, col) not in self.ship_locations:
-                        self.ship_locations.append((row, col))
-                        p = p+1
-                        break
+            
+            while p < 3:
+                row = randint(0, len(self.board) - 1)
+                col = randint(0, len(self.board[0]) - 1)
+                if (row, col) not in self.ship_locations:
+                    self.ship_locations.append((row, col))
+                    p = p+1
+                    
             
     #Below code is taken from Code Institute project portfolio
     def print_board(self):
@@ -62,7 +62,7 @@ class Board:
                 row = int(input("Guess a row(0-4):"))
                 col = int(input("Guess a column(0-4):"))
 
-                if (row < 5 and col < 5):
+                if (row >4 and col > 4):
                     raise ValueError("Your guess is out of range! Try again..")
 
                 return (row, col)
@@ -84,7 +84,7 @@ class Board:
         Check's whether player guess and computer guess hit a ship or not.
         And scores of each player and computer are updated accordingly.
         """
-        if row_col in opp_player.ship_locations():
+        if row_col in opp_player.ship_locations:
             self.score = self.score + 1
             print("Hit Successful!. "+self.name+"'s score is ",self.score) 
             
@@ -101,7 +101,7 @@ class Board:
         """
         print("_" * 35)
         print("welcome to BATTLESHIP GAME!!")
-        print(f"Board size : 5. Number of Ships : 3")
+        print("Board size : 5. Number of Ships : 3")
         print("Top left corner is row : 0, col : 0")
         print("'@' = Player ship location")
         print("'X' = Hit ")
@@ -127,7 +127,7 @@ class Board:
         And displays who the winner is after the game.
         """
 
-
+        print (computer.ship_locations)
         while player.score < 3 and computer.score < 3:
 
             while True:
@@ -137,6 +137,7 @@ class Board:
 
                     player.check_guess(p_row_col, computer)
                     computer.print_board()
+                    break
                 else:
                     print("Coordinates already used") 
 
@@ -148,14 +149,14 @@ class Board:
 
                     computer.check_guess(p_row_col, player)
                     player.print_board()
+                    break
                 else:
                     print("Coordinates already used") 
 
-            if player.score > computer.score:
-                print("You won!!")
-            else:
-                print("Computer won!!")        
+        if player.score > computer.score:
+            print("You won!!")
+        else:
+            print("Computer won!!")        
 
         
-
-    
+Board.new_game()    
