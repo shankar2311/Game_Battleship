@@ -117,6 +117,44 @@ class Board:
         #Initiates computerboard and prints the board for the computer
         computer = Board("computer")
         computer.print_board()
+        
+        """
+        Code is inspired from other battleship game's code.
+
+        Check the guesses of both player and computer, raises error
+        messsage if same row and column is already used.
+
+        And displays who the winner is after the game.
+        """
+
+
+        while player.score < 3 and computer.score < 3:
+
+            while True:
+                p_row_col = player.player_guess()
+
+                if computer.board[p_row_col[0]][p_row_col[1]] not in ['X', 'O']:
+
+                    player.check_guess(p_row_col, computer)
+                    computer.print_board()
+                else:
+                    print("Coordinates already used") 
+
+
+            while True:
+                c_row_col = computer.computer_guess()
+
+                if player.board[p_row_col[0]][p_row_col[1]] not in ['X', 'O']:
+
+                    computer.check_guess(p_row_col, player)
+                    player.print_board()
+                else:
+                    print("Coordinates already used") 
+
+            if player.score > computer.score:
+                print("You won!!")
+            else:
+                print("Computer won!!")        
 
         
 
