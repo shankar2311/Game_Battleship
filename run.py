@@ -84,11 +84,22 @@ class Board:
             opp_player.board[row_col[0]][row_col[1]] = "X"
         else:
             print("Hit Unsuccessful")
-            opp_player.board[row_col[0]][row_col[1]] = "O"     
+            opp_player.board[row_col[0]][row_col[1]] = "o"     
 
 
     
-
+    def new_game():
+        """
+        Starts new game and prints information about the battleship game
+        """
+        print("_" * 35)
+        print("welcome to BATTLESHIP GAME!!")
+        print(f"Board size : 5. Number of Ships : 3")
+        print("Top left corner is row : 0, col : 0")
+        print("'@' = Player ship location")
+        print("'X' = Hit ")
+        print("'o' = Miss")
+        print("_" * 35)
 
 
 
