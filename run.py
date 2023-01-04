@@ -86,12 +86,12 @@ class Board:
         """
         if row_col in opp_player.ship_locations():
             self.score = self.score + 1
-            print("Hit Successful!") 
+            print("Hit Successful!. "+self.name+"'s score is ",self.score) 
             
             opp_player.board[row_col[0]][row_col[1]] = "X"
         else:
-            print("Hit Unsuccessful")
-            opp_player.board[row_col[0]][row_col[1]] = "o"     
+            print("\n"+self.name+"'s hit unsuccessful")
+            opp_player.board[row_col[0]][row_col[1]] = "O"     
 
 
     
@@ -105,17 +105,18 @@ class Board:
         print("Top left corner is row : 0, col : 0")
         print("'@' = Player ship location")
         print("'X' = Hit ")
-        print("'o' = Miss")
+        print("'O' = Miss")
         print("_" * 35)
         print("\n\n Let's Play\n\n")
-        
-#Initiates playerboard and prints the board for the player
-player = Board(input("Please enter player name:"))
-player.print_board()
 
-#Initiates computerboard and prints the board for the computer
-computer = Board("computer")
-computer.print_board()
+
+        #Initiates playerboard and prints the board for the player
+        player = Board(input("Please enter player name:"))
+        player.print_board()
+
+        #Initiates computerboard and prints the board for the computer
+        computer = Board("computer")
+        computer.print_board()
 
         
 
