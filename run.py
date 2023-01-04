@@ -71,22 +71,23 @@ class Board:
         return (row, col)
 
 
-    def check_guess(row_col):
+    def check_guess(self, row_col, opp_player):
         """
+        Takes first argument as tuple and second argument as Board object.
         Check's whether player guess and computer guess hit a ship or not.
         And scores of each player and computer are updated accordingly.
         """
-        if row_col in self.ship_locations():
+        if row_col in opp_player.ship_locations():
             self.score = self.score + 1
-            print("Hit Successful") 
-            print(f"Score : {score}")
-            self.board[row_col[0]][row_col[1]] = "X"
+            print("Hit Successful!") 
+            
+            opp_player.board[row_col[0]][row_col[1]] = "X"
         else:
             print("Hit Unsuccessful")
-            self.board[row_col[0]][row_col[1]] = "O"     
+            opp_player.board[row_col[0]][row_col[1]] = "O"     
 
 
-    def new_game():
+    
 
 
 
