@@ -50,7 +50,7 @@ class Board:
             
     #Below code is taken from Code Institute project portfolio
     def print_board(self):
-        print("\n"+self.name+"'s' board \n")
+        print("\n"+self.name+"'s board \n")
         for row in self.board:
             print(" ".join(row))
 
@@ -59,11 +59,11 @@ class Board:
 
         while True:
             try:
-                row = int(input("Guess a row(0-4):"))
-                col = int(input("Guess a column(0-4):"))
+                row = int(input("Guess a row(0-4) :\n"))
+                col = int(input("Guess a column(0-4) :\n"))
 
                 if (row >4 and col > 4):
-                    raise ValueError("Your guess is out of range! Try again..")
+                    raise ValueError("Your guess is out of range! Try again..\n")
 
                 return (row, col)
 
@@ -71,7 +71,7 @@ class Board:
                 print(e)    
 
     def computer_guess(self):
-        print("computer is guessing now..")
+        print("computer is guessing now..\n")
         row = randint(0, 4)
         col = randint(0, 4)
 
@@ -90,7 +90,7 @@ class Board:
             
             opp_player.board[row_col[0]][row_col[1]] = "X"
         else:
-            print("\n"+self.name+"'s hit unsuccessful")
+            print("\n"+self.name+"'s hit unsuccessful\n")
             opp_player.board[row_col[0]][row_col[1]] = "O"     
 
 
@@ -100,12 +100,12 @@ class Board:
         Starts new game and prints information about the battleship game
         """
         print("_" * 35)
-        print("welcome to BATTLESHIP GAME!!")
-        print("Board size : 5. Number of Ships : 3")
-        print("Top left corner is row : 0, col : 0")
-        print("'@' = Player ship location")
-        print("'X' = Hit ")
-        print("'O' = Miss")
+        print("\nwelcome to BATTLESHIP GAME!!\n")
+        print("Board size : 5. Number of Ships : 3\n")
+        print("Top left corner is row : 0, col : 0\n")
+        print("'@' = Player ship location\n")
+        print("'X' = Hit\n")
+        print("'O' = Miss\n")
         print("_" * 35)
         print("\n\n Let's Play\n\n")
 
@@ -127,7 +127,7 @@ class Board:
         And displays who the winner is after the game.
         """
 
-        print (computer.ship_locations)
+        
         while player.score < 3 and computer.score < 3:
 
             while True:
@@ -139,7 +139,7 @@ class Board:
                     computer.print_board()
                     break
                 else:
-                    print("Coordinates already used") 
+                    print("Coordinates already used\n") 
 
 
             while True:
@@ -151,12 +151,12 @@ class Board:
                     player.print_board()
                     break
                 else:
-                    print("Coordinates already used") 
+                    print("Coordinates already used\n") 
 
         if player.score > computer.score:
-            print("You won!!")
+            print("\nCongratulations You won!!\n")
         else:
-            print("Computer won!!")        
+            print("\nComputer won!!\n")        
 
         
 Board.new_game()    
