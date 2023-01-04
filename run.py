@@ -18,6 +18,23 @@ class Board:
         for row in self.board:
             print(" ".join(row))
 
+    def add_ships(self):
+        """
+        In this method we add 3 ships to both player board and computer board
+        Ships in player board are visible and ships in computer board are invisible
+        """
+        for i in range(3):
+            row = randint(0, len(self.board) - 1)
+            col = randint(0, len(self.board[0]) - 1)
+            if self.board[row][col] != "@":
+                self.board[row][col] = "@"
+            else:
+                print("Error: You cannot add more ships")    
+
+
+        
+
+
   
 class Ship:
     """
@@ -70,3 +87,9 @@ class StartGame:
             return True
         else:
             return False       
+
+
+player = Board()
+player.add_ships()
+print(player.board)
+player.print_board()
