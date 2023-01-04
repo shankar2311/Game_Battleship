@@ -71,10 +71,10 @@ class Board:
                 
 
     def computer_guess(self):
-        print("computer is guessing now..\n")
+        print("\ncomputer is guessing now..")
         row = randint(0, 4)
         col = randint(0, 4)
-
+        print("\nComputer guess is ",(row,col))
         return (row, col)
 
 
@@ -87,7 +87,7 @@ class Board:
         """
         if row_col in opp_player.ship_locations:
             self.score = self.score + 1
-            print("Hit Successful!. "+self.name+"'s score is ",self.score) 
+            print("\nHit Successful!. "+self.name+"'s score is ",self.score) 
             
             opp_player.board[row_col[0]][row_col[1]] = "X"
         else:
@@ -127,7 +127,7 @@ class Board:
         And displays who the winner is after the game.
         """
 
-    
+        
         while player.score < 4 and computer.score < 4:
 
             while True:
@@ -145,9 +145,9 @@ class Board:
             while True:
                 c_row_col = computer.computer_guess()
 
-                if player.board[p_row_col[0]][p_row_col[1]] not in ['X', 'O']:
+                if player.board[c_row_col[0]][c_row_col[1]] not in ['X', 'O']:
 
-                    computer.check_guess(p_row_col, player)
+                    computer.check_guess(c_row_col, player)
                     player.print_board()
                     break
                 else:
