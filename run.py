@@ -1,6 +1,6 @@
 from random import randint
 
-player_name = input("Please enter your name:")
+
 
 class Board:
     """
@@ -11,6 +11,7 @@ class Board:
     def __init__(self):
 
         self.board = [["."] * 5 for i in range(5)]
+        self.ship_locations = []
 
     #Below code is taken from Code Institute project portfolio
     def print_board(self):
@@ -28,8 +29,17 @@ class Board:
             col = randint(0, len(self.board[0]) - 1)
             if self.board[row][col] != "@":
                 self.board[row][col] = "@"
+                self.ship_locations.append((row, col))
             else:
-                print("Error: You cannot add more ships")    
+                print("Error: You cannot add more ships") 
+
+        for i in range(3):
+            row = randint(0, len(self.board) - 1)
+            col = randint(0, len(self.board[0]) - 1)
+            if (row, col) not in self.ship_locations:
+                self.ship_locations.append((row, col))
+            else:
+                print("Error: You cannot add more ships") 
 
 
         
@@ -90,6 +100,8 @@ class StartGame:
 
 
 player = Board()
+computer = Board()
 player.add_ships()
-print(player.board)
 player.print_board()
+computer.add_ships()
+computer.print_board()
