@@ -15,18 +15,14 @@ class Board:
         self.name = name
         self.board = [["."] * 5 for i in range(5)]
         self.ship_locations = []
+        self.add_ships()
         
-
-    #Below code is taken from Code Institute project portfolio
-    def print_board(self):
-
-        for row in self.board:
-            print(" ".join(row))
 
     def add_ships(self):
         """
         In this method we add 3 ships to both player board and computer board
-        Ships in player board are visible and ships in computer board are invisible
+        Ships in player board are visible and ships in computer board are not shown.
+        code is inspired from google
         """
         p = 0 
 
@@ -52,17 +48,22 @@ class Board:
                         p = p+1
                         break
             
-
+    #Below code is taken from Code Institute project portfolio
+    def print_board(self):
+        print("\n"+self.name+"'s' board \n")
+        for row in self.board:
+            print(" ".join(row))
 
     def player_guess(self):
+
 
         while True:
             try:
                 row = int(input("Guess a row(0-4):"))
                 col = int(input("Guess a column(0-4):"))
 
-                if (row < 4 and col < 4):
-                    raise ValueError("Your guess is out of range!")
+                if (row < 5 and col < 5):
+                    raise ValueError("Your guess is out of range! Try again..")
 
                 return (row, col)
 
@@ -70,7 +71,7 @@ class Board:
                 print(e)    
 
     def computer_guess(self):
-
+        print("computer is guessing now..")
         row = randint(0, 4)
         col = randint(0, 4)
 
