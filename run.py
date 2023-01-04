@@ -19,7 +19,7 @@ class Board:
         for row in self.board:
             print(" ".join(row))
 
-    def add_ships(self):
+    def add_ships_player(self):
         """
         In this method we add 3 ships to both player board and computer board
         Ships in player board are visible and ships in computer board are invisible
@@ -33,62 +33,39 @@ class Board:
             else:
                 print("Error: You cannot add more ships") 
 
+    def add_ships_computer(self):          
+
         for i in range(3):
             row = randint(0, len(self.board) - 1)
             col = randint(0, len(self.board[0]) - 1)
             if (row, col) not in self.ship_locations:
-                self.ship_locations.append((row, col))
+                pass
             else:
-                print("Error: You cannot add more ships") 
+                self.ship_locations.append((row, col))
+            
 
 
-        
-
-
-  
-class Ship:
-    """
-    The ship class places a ship at a random location on the board.
-    
-    """
-    def __init__(self, board):
-
-        self.board = board
-        self.ship_row = randint(0, len(self.board.board) - 1) 
-        self.ship_col = randint(0, len(self.board.board) - 1) 
-
-
-class StartGame:
-    """
-    In StartGame class allows the player and computer to guess the location of the ship.
-    """
-    def __init__(self):
-
-        self.board = Board()
-        self.ship = Ship(self.board) 
-
-
-    def make_guess(self):
+    def player_guess(self):
 
         while True:
             try:
-                x = int(input("Guess a row(0-4):"))
-                y = int(input("Guess a column(0-4):"))
+                row = int(input("Guess a row(0-4):"))
+                col = int(input("Guess a column(0-4):"))
 
-                if x < 0 or x > 4 or y < 0 or y > 4:
+                if (row < 4 and col < 4):
                     raise ValueError("Your guess is out of range!")
 
-                return (x, y)
+                return (row, col)
 
             except ValueError as e:
                 print(e)    
 
     def computer_guess(self):
 
-        x = randint(0, 4)
-        y = randint(0, 4)
+        row = randint(0, 4)
+        col = randint(0, 4)
 
-        return (x, y)
+        return (row, col)
 
 
     def check_winner(self, x, y):
@@ -101,7 +78,9 @@ class StartGame:
 
 player = Board()
 computer = Board()
-player.add_ships()
+
+player.add_ships_player()
 player.print_board()
-computer.add_ships()
+
+computer.add_ships_computer()
 computer.print_board()
