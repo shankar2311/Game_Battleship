@@ -61,14 +61,16 @@ class Board:
             try:
                 row = int(input("Guess a row(0-4) :\n"))
                 col = int(input("Guess a column(0-4) :\n"))
+            except ValueError:
+                print("You must enter an integer") 
+                continue 
 
-                if (row >4 and col > 4):
-                    raise ValueError("Your guess is out of range! Try again..\n")
-
+            if (row >4 and col > 4):
+                print("Your guess is out of range! Try again..\n")
+            else:
                 return (row, col)
 
-            except ValueError as e:
-                print(e)    
+                
 
     def computer_guess(self):
         print("computer is guessing now..\n")
@@ -127,7 +129,7 @@ class Board:
         And displays who the winner is after the game.
         """
 
-        
+        print (computer.ship_locations)
         while player.score < 3 and computer.score < 3:
 
             while True:
