@@ -1,14 +1,12 @@
 from random import randint
 
-
-
 class Board:
     """
     Main board class. Sets board size.
     Has methods for printing board for both player and computer.
     code inspired from Code Institute lessons
     """
-
+    #Variable to store hit points
     score = 0
 
     def __init__(self, name):
@@ -20,15 +18,14 @@ class Board:
 
     def add_ships(self):
         """
-        In this method we add 3 ships to both player board and computer board
+        In this method we add 4 ships to both player board and computer board
         Ships in player board are visible and ships in computer board are not shown.
-        code is inspired from google
+        code is inspired from Code Institute lessons and from youtube.
         """
         p = 0 
 
         if self.name != "computer":
 
-            
             while p < 4:
                 row = randint(0, len(self.board) - 1)
                 col = randint(0, len(self.board[0]) - 1)
@@ -39,7 +36,6 @@ class Board:
                    
         else:
 
-            
             while p < 4:
                 row = randint(0, len(self.board) - 1)
                 col = randint(0, len(self.board[0]) - 1)
@@ -55,7 +51,9 @@ class Board:
             print(" ".join(row))
 
     def player_guess(self):
-
+        """
+        Code inspired from Code Institute lessons and challenges
+        """
 
         while True:
             try:
@@ -85,6 +83,7 @@ class Board:
         Takes first argument as tuple and second argument as Board object.
         Check's whether player guess and computer guess hit a ship or not.
         And scores of each player and computer are updated accordingly.
+        Code inspired from other battleship game you tube videos.
         """
         if row_col in opp_player.ship_locations:
             self.score = self.score + 1
@@ -93,10 +92,9 @@ class Board:
             opp_player.board[row_col[0]][row_col[1]] = "X"
         else:
             print("\n"+self.name+"'s hit unsuccessful\n")
-            opp_player.board[row_col[0]][row_col[1]] = "O"     
+            opp_player.board[row_col[0]][row_col[1]] = "O" 
 
 
-    
     def new_game():
         """
         Starts new game and prints information about the battleship game
@@ -129,7 +127,7 @@ class Board:
         And displays who the winner is after the game.
         """
 
-        print (computer.ship_locations)
+    
         while player.score < 4 and computer.score < 4:
 
             while True:
