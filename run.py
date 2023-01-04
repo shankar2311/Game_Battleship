@@ -68,12 +68,18 @@ class Board:
         return (row, col)
 
 
-    def check_winner(self, x, y):
-        # Checks the winner, returns true if all the ships have been hit otherwise returns false
-        if x == self.ship.ship_row and y == self.ship.ship_col:
-            return True
+    def check_guess(row_col):
+        """
+        Check's whether player guess and computer guess hit a ship or not.
+        And scores updated to each player and computer accordingly
+        """
+        if row_col in self.ship_locations():
+            score = score + 1
+            print("Hit Successful") 
+            print(f"Score : {score}")
         else:
-            return False       
+            print("Hit Unsuccessful")     
+
 
 
 player = Board()
