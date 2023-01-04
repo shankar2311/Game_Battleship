@@ -29,7 +29,7 @@ class Board:
         if self.name != "computer":
 
             
-            while p < 3:
+            while p < 4:
                 row = randint(0, len(self.board) - 1)
                 col = randint(0, len(self.board[0]) - 1)
                 if self.board[row][col] != "@":
@@ -40,7 +40,7 @@ class Board:
         else:
 
             
-            while p < 3:
+            while p < 4:
                 row = randint(0, len(self.board) - 1)
                 col = randint(0, len(self.board[0]) - 1)
                 if (row, col) not in self.ship_locations:
@@ -103,7 +103,7 @@ class Board:
         """
         print("_" * 35)
         print("\nwelcome to BATTLESHIP GAME!!\n")
-        print("Board size : 5. Number of Ships : 3\n")
+        print("Board size : 5. Number of Ships : 4\n")
         print("Top left corner is row : 0, col : 0\n")
         print("'@' = Player ship location\n")
         print("'X' = Hit\n")
@@ -130,7 +130,7 @@ class Board:
         """
 
         print (computer.ship_locations)
-        while player.score < 3 and computer.score < 3:
+        while player.score < 4 and computer.score < 4:
 
             while True:
                 p_row_col = player.player_guess()
