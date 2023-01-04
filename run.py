@@ -11,10 +11,11 @@ class Board:
 
     score = 0
 
-    def __init__(self):
-
+    def __init__(self, name):
+        self.name = name
         self.board = [["."] * 5 for i in range(5)]
         self.ship_locations = []
+        
 
     #Below code is taken from Code Institute project portfolio
     def print_board(self):
@@ -22,29 +23,34 @@ class Board:
         for row in self.board:
             print(" ".join(row))
 
-    def add_ships_player(self):
+    def add_ships(self):
         """
         In this method we add 3 ships to both player board and computer board
         Ships in player board are visible and ships in computer board are invisible
         """
-        for i in range(3):
-            row = randint(0, len(self.board) - 1)
-            col = randint(0, len(self.board[0]) - 1)
-            if self.board[row][col] != "@":
-                self.board[row][col] = "@"
-                self.ship_locations.append((row, col))
-            else:
-                print("Error: You cannot add more ships") 
+        p = 0 
 
-    def add_ships_computer(self):          
+        if self.name != "computer":
 
-        for i in range(3):
-            row = randint(0, len(self.board) - 1)
-            col = randint(0, len(self.board[0]) - 1)
-            if (row, col) not in self.ship_locations:
-                pass
-            else:
-                self.ship_locations.append((row, col))
+            for i in range(3):
+                while p < 3:
+                    row = randint(0, len(self.board) - 1)
+                    col = randint(0, len(self.board[0]) - 1)
+                    if self.board[row][col] != "@":
+                        self.board[row][col] = "@"
+                        self.ship_locations.append((row, col))
+                        p = p+1
+                        break
+        else:
+
+            for i in range(3):
+                while p < 3:
+                    row = randint(0, len(self.board) - 1)
+                    col = randint(0, len(self.board[0]) - 1)
+                    if (row, col) not in self.ship_locations:
+                        self.ship_locations.append((row, col))
+                        p = p+1
+                        break
             
 
 
@@ -100,14 +106,16 @@ class Board:
         print("'X' = Hit ")
         print("'o' = Miss")
         print("_" * 35)
-
-
-
-player = Board()
-computer = Board()
-
-player.add_ships_player()
+        print("\n\n Let's Play\n\n")
+        
+#Initiates playerboard and prints the board for the player
+player = Board(input("Please enter player name:"))
 player.print_board()
 
-computer.add_ships_computer()
+#Initiates computerboard and prints the board for the computer
+computer = Board("computer")
 computer.print_board()
+
+        
+
+    
