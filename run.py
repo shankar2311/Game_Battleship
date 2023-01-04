@@ -8,6 +8,9 @@ class Board:
     Has methods for printing board for both player and computer.
     code inspired from Code Institute lessons
     """
+
+    score = 0
+
     def __init__(self):
 
         self.board = [["."] * 5 for i in range(5)]
@@ -71,14 +74,20 @@ class Board:
     def check_guess(row_col):
         """
         Check's whether player guess and computer guess hit a ship or not.
-        And scores updated to each player and computer accordingly
+        And scores of each player and computer are updated accordingly.
         """
         if row_col in self.ship_locations():
-            score = score + 1
+            self.score = self.score + 1
             print("Hit Successful") 
             print(f"Score : {score}")
+            self.board[row_col[0]][row_col[1]] = "X"
         else:
-            print("Hit Unsuccessful")     
+            print("Hit Unsuccessful")
+            self.board[row_col[0]][row_col[1]] = "O"     
+
+
+    def new_game():
+
 
 
 
