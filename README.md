@@ -1,10 +1,15 @@
-# BATTLESHIP GAMEB
+# BATTLESHIP GAME
+
+Welcome!
+
+[Live version](https://gamebattleship3.herokuapp.com/)
 
 Battleship game is python terminal game, Which runs in the Code institute mock terminal on Heroku.
 
 Users can try to beat the computer by finding all of the computer's battleships before the computer finds theirs. Each battleship occupies one square on the board.
 
-Welcome!
+
+![responsive](assets/images/respon.png)
 
 ## How to play
 
