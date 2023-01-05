@@ -1,14 +1,21 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# BATTLESHIP GAMEB
 
-Welcome shankar2311,
+Battleship game is python terminal game, Which runs in the Code institute mock terminal on Heroku.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Users can try to beat the computer by finding all of the computer's battleships before the computer finds theirs. Each battleship occupies one square on the board.
 
-## Reminders
+Welcome!
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## How to play
+
+* Battleship game is based on the classic pen-and-paper game.
+* You can read more about it on Wikipedia.
+* In this game the size of the board is 5 by 5 matrix and number of ships are 4.
+* The player can see where their ships are, indicated by an @ sign here is 4, but cannot see where the computer ship's are.
+* Guesses are marked on the board by 'O'. Hits are marked by 'X'.
+* The player and the computer then take it in turns to make guesses and try to sink each other's battleships.
+* The winner is the player who sinks all of their opponent's battleships first.
+
 
 ## Creating the Heroku app
 
