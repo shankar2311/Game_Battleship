@@ -63,7 +63,7 @@ The Board class has methods to help play the game, such as print method to print
 
 I have manually tested this project by doing the following:
 
-* Passed the code through a PEP8 linter and found some errors.
+* Passed the code through a Code Institute's PEP8 linter and found some errors.
 ![validator](assets/images/validator.png)
 
 * Given invalid inputs: strings when numbers are expected, out of bounds inputs, same input twice.
@@ -93,14 +93,18 @@ This project was deployed using Code institutes's mock terminal for Heroku
   - Click on Deploy
 
 ### Credits
+* README.md file was taken from the Code Institute readme-template
 * Code Institute for the deployement terminal
 * Basic idea of the game is taken from Code institutes project portfolio 3 
-* Code is mostly inspired from other battleship game videos from youtube and chatgpt
+* Code is mostly inspired from other battleship game from chatgpt
+* And also inspired from Knowledge Mavens 
+[Click here](https://www.youtube.com/@KnowledgeMavens/search?query=battleship%20game)
 * Used Jupyter notebook for debugging code step by step 
 
 ### Acknowledgement
-* Very thankfull to my mentor rory_patrick for valuable suggestions
+* Very thankfull to my mentor Rory Patrick for valuable suggestions
 * Thankfull to Code institutes Slack Community
+* And my friend, Rajesh for his support in debugging code
 
 
 
