@@ -16,10 +16,13 @@ Users can try to beat the computer by finding all of the computer's battleships 
 * Battleship game is based on the classic pen-and-paper game.
 * You can read more about it on Wikipedia.
 * In this game the size of the board is 5 by 5 matrix and number of ships are 4.
+
+![intro](assets/images/intro.png)
 * The player can see where their ships are, indicated by an @ sign here is 4, but cannot see where the computer ship's are.
 * Guesses are marked on the board by 'O'. Hits are marked by 'X'.
 * The player and the computer then take it in turns to make guesses and try to sink each other's battleships.
 * The winner is the player who sinks all of their opponent's battleships first.
+![win](assets/images/win.png)
 
 
 ## Features
@@ -30,14 +33,19 @@ Users can try to beat the computer by finding all of the computer's battleships 
   - Ships are  randomly placed on both the player and computer board
   - THe player cannot see where the computer's board are
 
+![boards](assets/images/main.png)
 
   - Play against the computer
   - Accepts user input
   - Maintain scores
+
+![score](assets/images/score.png)  
 * Input validation and error checking
   - You cannot enter coordinates outside of the grid
   - You must enter numbers
   - You cannot enter same guess twice
+
+![guess](assets/images/correct.png)  
   - Data maintained in class instances
 
 ### Future Features  
@@ -56,6 +64,8 @@ The Board class has methods to help play the game, such as print method to print
 I have manually tested this project by doing the following:
 
 * Passed the code through a PEP8 linter and found some errors.
+![validator](assets/images/validator.png)
+
 * Given invalid inputs: strings when numbers are expected, out of bounds inputs, same input twice.
 * Tested in my local terminal and the Code institute Heroku terminal
 
